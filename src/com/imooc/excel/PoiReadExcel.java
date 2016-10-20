@@ -12,29 +12,30 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 public class PoiReadExcel {
 
 	/**
-	 * POI½âÎöExcelÎÄ¼şÄÚÈİ
+	 * POIè§£æExcelæ–‡ä»¶å†…å®¹
 	 * 
 	 * @author David
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
-		// ĞèÒª½âÎöµÄExcelÎÄ¼ş
+		// éœ€è¦è§£æçš„Excelæ–‡ä»¶
 		File file = new File("e:/poi_test.xls");
 		try {
-			// ´´½¨Excel£¬¶ÁÈ¡ÎÄ¼şÄÚÈİ
+			// åˆ›å»ºExcelï¼Œè¯»å–æ–‡ä»¶å†…å®¹
+			FileInputStream fis= FileUtils.openInputStream(file);
 			HSSFWorkbook workbook = new HSSFWorkbook(FileUtils.openInputStream(file));
-			// ·½·¨1 »ñÈ¡µÚÒ»¸ö¹¤×÷±íworkbook.getSheet("Sheet0");
+			// æ–¹æ³•1 è·å–ç¬¬ä¸€ä¸ªå·¥ä½œè¡¨workbook.getSheet("Sheet0");
 			// HSSFSheet sheet = workbook.getSheet("Sheet0");
 			
-			// ·½·¨2 ¶ÁÈ¡Ä¬ÈÏµÚÒ»¸ö¹¤×÷±ísheet
+			// æ–¹æ³•2 è¯»å–é»˜è®¤ç¬¬ä¸€ä¸ªå·¥ä½œè¡¨sheet
 			HSSFSheet sheet = workbook.getSheetAt(0);
 			int firstRowNum = 0;
-			// »ñÈ¡sheetÖĞ×îºóÒ»ĞĞĞĞºÅ
+			// è·å–sheetä¸­æœ€åä¸€è¡Œè¡Œå·
 			int lastRowNum = sheet.getLastRowNum();
 			for (int i = firstRowNum; i <= lastRowNum; i++) {
 				HSSFRow row = sheet.getRow(i);
-				// »ñÈ¡µ±Ç°ĞĞ×îºóµ¥Ôª¸ñÁĞºÅ
+				// è·å–å½“å‰è¡Œæœ€åå•å…ƒæ ¼åˆ—å·
 				int lastCellNum = row.getLastCellNum();
 				for (int j = 0; j < lastCellNum; j++) {
 					HSSFCell cell = row.getCell(j);
