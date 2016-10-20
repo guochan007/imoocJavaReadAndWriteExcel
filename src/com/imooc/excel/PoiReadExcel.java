@@ -1,6 +1,7 @@
 package com.imooc.excel;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
@@ -47,6 +48,8 @@ public class PoiReadExcel {
 			workbook.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally{
+			fis.close();
 		}
 	}
 }
